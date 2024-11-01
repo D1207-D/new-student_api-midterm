@@ -1,0 +1,54 @@
+# Creating an .http file with HTTP requests for testing CRUD operations of the RESTful API.
+
+http_requests_content = """
+### Get all students
+GET http://localhost:8000/students
+Accept: application/json
+
+### Get a specific student by ID
+GET http://localhost:8000/students/1
+Accept: application/json
+
+### Create a new student
+POST http://localhost:8000/students
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "John Doe",
+    "grade": "A",
+    "email": "john.doe@example.com"
+}
+
+### Create another student
+POST http://localhost:8000/students
+Content-Type: application/json
+
+{
+    "id": 2,
+    "name": "Jane Smith",
+    "grade": "A",
+    "email": "jane.smith@example.com"
+}
+
+### Update an existing student by ID
+PUT http://localhost:8000/students/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "John Doe Updated",
+    "grade": "A+",
+    "email": "john.doe.updated@example.com"
+}
+
+### Delete a student by ID
+DELETE http://localhost:8000/students/1
+"""
+
+# Saving the .http content to a file
+http_requests_path = '/mnt/data/api_requests.http'
+with open(http_requests_path, 'w') as file:
+    file.write(http_requests_content)
+
+http_requests_path
